@@ -4,7 +4,6 @@ var formidableMiddleware = require('express-formidable');
 var ultimasTareas = [];
 var usuarios = [];
 var usuariosChat = [];
-var miSocketTest = "";
 
 app.use(express.static(__dirname + "/public"));
 var port = process.env.PORT || 3000;
@@ -91,7 +90,4 @@ io.on('connection', function (socket) {
   socket.on("mensajeChat", function (mensaje) {
     socket.broadcast.emit('mensajesChat', mensaje);
   });
-});
-http.listen(3000, function () {
-  console.log('listening on *:3000');
 });
